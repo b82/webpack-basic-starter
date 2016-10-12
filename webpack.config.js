@@ -1,13 +1,13 @@
 
-// var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
 
 var environment = process.env.NODE_ENV || 'development';
 
 module.exports = {
-    entry: './App.jsx',
+    entry: './src/App.jsx',
     output: {
-        filename: './src/build/bundle.js'
+        filename: './dist/build.js'
     },
     resolve: {
         extensions: ['', '.js', '.jsx'],
@@ -21,11 +21,11 @@ module.exports = {
                 query: {
                     presets: ['react', 'es2015', 'stage-2']
                 }
+            },
+            {
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract('css!sass')
             }
-            // {
-            //     test: /\.scss$/,
-            //     loader: ExtractTextPlugin.extract('css!sass')
-            // },
             // {
             //     test: /\.jpe?g$|\.gif$|\.png$/i,
             //     loader: "file-loader?name=/img/[name].[ext]"
@@ -37,9 +37,9 @@ module.exports = {
         ]
     },
     plugins: [
-        // new ExtractTextPlugin('./public/css/style.css', {
-        //     allChunks: true
-        // })
+        new ExtractTextPlugin('./src/css/style.css', {
+            allChunks: true
+        }),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify(environment)
