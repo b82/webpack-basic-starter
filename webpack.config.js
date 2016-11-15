@@ -12,7 +12,7 @@ module.exports = {
     resolve: {
         root: __dirname,
         alias: {
-            // Component: 'app/components/Component',
+            // Component: 'app/components/Component.jsx',
         },
         extensions: ['', '.js', '.jsx'],
     },
