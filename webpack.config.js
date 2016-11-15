@@ -10,6 +10,10 @@ module.exports = {
         filename: './dist/build.js'
     },
     resolve: {
+        root: __dirname,
+        alias: {
+            // Component: 'path/to/component',
+        },
         extensions: ['', '.js', '.jsx'],
     },
     module: {
