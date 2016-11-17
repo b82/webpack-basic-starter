@@ -40,6 +40,7 @@ module.exports = {
             // }
         ]
     },
+    devtool: 'eval-source-map',
     plugins: [
         new ExtractTextPlugin('./src/css/style.css', {
             allChunks: true
